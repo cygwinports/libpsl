@@ -1,0 +1,37 @@
+NAME="libpsl"
+VERSION=0.12.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Public Suffix List library"
+DESCRIPTION="A public suffix is one under which Internet users can (or
+historically could) directly register names. Some examples of public
+suffixes are .com, .co.uk and pvt.k12.ma.us. The Public Suffix List is a
+list of all known public suffixes."
+HOMEPAGE="https://github.com/rockdaboot/libpsl/"
+SRC_URI="https://github.com/rockdaboot/libpsl/releases/download/libpsl-${VERSION}/libpsl-${VERSION}.tar.gz"
+PATCH_URI="0.12.0-no-undefined.patch"
+
+PKG_NAMES="libpsl5 libpsl-devel libpsl-doc publicsuffix-utils"
+libpsl5_CONTENTS="usr/bin/cygpsl-5.dll usr/share/doc/"
+libpsl_devel_CONTENTS="
+	usr/include/libpsl.h
+	usr/lib/libpsl.dll.a
+	usr/lib/pkgconfig/libpsl.pc
+	usr/share/man/man3/libpsl.3*
+"
+libpsl_doc_CATEGORY="Doc"
+libpsl_doc_CONTENTS="usr/share/gtk-doc/html/libpsl/"
+publicsuffix_utils_CATEGORY="Net"
+publicsuffix_utils_CONTENTS="usr/bin/psl.exe"
+
+#BUILDREQUIRES=(gtk-doc libicu-devel libidn-devel libxslt publicsuffix-list)
+
+# libpsl is used by curl and wget, which already use libidn
+CYGCONF_ARGS="
+	--enable-gtk-doc
+	--enable-man
+	--enable-runtime=libidn
+	--enable-builtin=libicu
+	--with-psl-file=/usr/share/publicsuffix/public_suffix_list.dat
+	--with-psl-testfile=/usr/share/publicsuffix/test_psl.txt
+"
