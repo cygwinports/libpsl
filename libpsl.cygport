@@ -1,5 +1,5 @@
 NAME="libpsl"
-VERSION=0.12.0
+VERSION=0.13.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Public Suffix List library"
