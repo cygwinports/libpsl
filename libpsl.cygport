@@ -1,6 +1,6 @@
 NAME="libpsl"
-VERSION=0.13.0
-RELEASE=2
+VERSION=0.14.0
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Public Suffix List library"
 DESCRIPTION="A public suffix is one under which Internet users can (or
