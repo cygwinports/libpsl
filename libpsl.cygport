@@ -1,6 +1,6 @@
 NAME="libpsl"
 VERSION=0.14.0
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="Public Suffix List library"
 DESCRIPTION="A public suffix is one under which Internet users can (or
@@ -26,11 +26,11 @@ publicsuffix_utils_CONTENTS="usr/bin/psl.exe"
 
 #BUILDREQUIRES=(gtk-doc libicu-devel libidn-devel libxslt publicsuffix-list)
 
-# libpsl is used by curl and wget, which already use libidn
+# libpsl is used by curl (which now uses libidn2) and wget (which uses libidn)
 CYGCONF_ARGS="
 	--enable-gtk-doc
 	--enable-man
-	--enable-runtime=libidn
+	--enable-runtime=libidn2
 	--enable-builtin=libicu
 	--with-psl-file=/usr/share/publicsuffix/public_suffix_list.dat
 	--with-psl-testfile=/usr/share/publicsuffix/test_psl.txt
