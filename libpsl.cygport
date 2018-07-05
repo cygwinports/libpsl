@@ -1,5 +1,5 @@
 NAME="libpsl"
-VERSION=0.18.0
+VERSION=0.20.2
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Public Suffix List library"
@@ -10,7 +10,6 @@ list of all known public suffixes."
 HOMEPAGE="https://github.com/rockdaboot/libpsl/"
 SRC_URI="https://github.com/rockdaboot/libpsl/releases/download/libpsl-${VERSION}/libpsl-${VERSION}.tar.gz"
 PATCH_URI="
-	0.16.0-no-undefined.patch
 	0.16.0-install-dafsa.patch
 	0.16.1-make-dafsa-setlocale.patch
 "
@@ -42,7 +41,7 @@ psl_make_dafsa_CONTENTS="
 
 #BUILDREQUIRES=(gtk-doc libicu-devel libidn-devel libxslt publicsuffix-list)
 
-# libpsl is used by curl (which now uses libidn2) and wget (which uses libidn)
+# libpsl is used by curl and wget (which both now use libidn2)
 CYGCONF_ARGS="
 	--enable-gtk-doc
 	--enable-man
